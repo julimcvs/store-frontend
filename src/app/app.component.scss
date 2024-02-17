@@ -1,0 +1,23 @@
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-content: center;
+}
+
+#app-bar {
+  width: 100%
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
