@@ -1,0 +1,36 @@
+<div>
+  <div>
+    <nz-input-group
+      [nzAddOnAfter]="suffixIconButton"
+      nzSearch
+      nzSize="large"
+    >
+      <input
+        (input)="searchProducts()"
+        [(ngModel)]="searchProduct"
+        [nzAutocomplete]="auto"
+        nz-input
+        placeholder="O que você está procurando?"
+      />
+      <nz-autocomplete #auto [nzDataSource]="products" nzBackfill></nz-autocomplete>
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <button nz-button nzSearch nzSize="large" nzType="primary">
+        <span nz-icon nzTheme="outline" nzType="search"></span>
+      </button>
+    </ng-template>
+  </div>
+  <div [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }" nz-row style="margin-top: 50px">
+    <div class="gutter-row" nz-col>
+      <nz-card [nzCover]="coverTemplate" nzHoverable style="width:240px;">
+        <nz-card-meta nzDescription="www.instagram.com" nzTitle="Europe Street beat"></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img alt="example" height="200" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"/>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<div fxFlexAlign="start" fxLayout="row">
+
+</div>

@@ -1,17 +1,26 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {HomeComponent} from "./home/home.component";
-import {MatIcon} from "@angular/material/icon";
-import {MatIconButton} from "@angular/material/button";
-import {MatToolbar} from "@angular/material/toolbar";
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterOutlet} from '@angular/router';
+import {NzIconModule} from 'ng-zorro-antd/icon';
+import {NzLayoutModule} from 'ng-zorro-antd/layout';
+import {NzMenuModule} from 'ng-zorro-antd/menu';
+import {FormsModule} from "@angular/forms";
+import {NzAutocompleteComponent, NzAutocompleteModule} from "ng-zorro-antd/auto-complete";
+import {NzInputDirective} from "ng-zorro-antd/input";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, MatIcon, MatIconButton, MatToolbar],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    NzIconModule,
+    NzLayoutModule,
+    NzMenuModule,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'store-frontend';
+  isCollapsed = false;
 }
