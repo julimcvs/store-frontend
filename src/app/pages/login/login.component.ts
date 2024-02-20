@@ -34,8 +34,9 @@ export class LoginComponent {
     if (this.form.valid) {
       this.loading = true;
       this.userService.login(this.form.getRawValue()).subscribe({
-        next: (res) => {
-          this.router.navigate(['/login'])
+        next: (res: any) => {
+          this.router.navigate(['/home']);
+          localStorage.setItem('jwt-token', res.token)
           this.messageService.success('Login efetuado com sucesso!');
         },
         error: err => {
