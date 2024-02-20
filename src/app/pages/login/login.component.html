@@ -1,0 +1,27 @@
+<div style="display: flex;
+ flex-direction: column;
+  justify-content: center;
+  align-items: center;">
+  <img alt="logo" height="100" ngSrc="images/logo.png" style="object-fit: contain" width="150"/>
+  <nz-card style="width:375px;">
+    <form (ngSubmit)="submitForm()" [formGroup]="form" class="login-form" nz-form>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Email inválido">
+          <nz-input-group nzPrefixIcon="user" nzSize="large">
+            <input formControlName="username" nz-input placeholder="Email" type="text"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Senha inválida">
+          <nz-input-group nzPrefixIcon="lock" nzSize="large">
+            <input formControlName="password" nz-input placeholder="Senha" type="password"/>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button [nzType]="'primary'" class="login-form-button login-form-margin" nz-button>Log in</button>
+      <button [nzType]="'link'" class="login-form-button login-form-margin" nz-button>Registrar</button>
+    </form>
+  </nz-card>
+
+</div>

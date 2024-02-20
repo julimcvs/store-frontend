@@ -1,4 +1,17 @@
 <div>
+  <nz-content style="display: flex; justify-content: end; align-items: center; height: 100px">
+    <button nz-button nzSize="large" nzType="text">
+      <span class="home-icon" nz-icon nzTheme="outline" nzType="menu"></span>
+    </button>
+    <img alt="logo" height="100" ngSrc="images/logo.png" style="object-fit: contain" width="150"/>
+    <span class="example-spacer"></span>
+    <button nz-button nzSize="large" nzType="text" routerLink="/login" routerLinkActive="active">
+      <span class="home-icon" nz-icon nzTheme="outline" nzType="user"></span>
+    </button>
+    <button nz-button nzSize="large" nzType="text">
+      <span class="home-icon" nz-icon nzTheme="outline" nzType="shopping-cart"></span>
+    </button>
+  </nz-content>
   <div>
     <nz-input-group
       [nzAddOnAfter]="suffixIconButton"
@@ -20,17 +33,39 @@
       </button>
     </ng-template>
   </div>
-  <div [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }" nz-row style="margin-top: 50px">
-    <div class="gutter-row" nz-col>
-      <nz-card [nzCover]="coverTemplate" nzHoverable style="width:240px;">
-        <nz-card-meta nzDescription="www.instagram.com" nzTitle="Europe Street beat"></nz-card-meta>
+  <div nz-row nzGutter="12" style="margin-top: 20px">
+    @for (product of products;track product.id) {
+      <div nz-col nzSm="24" nzLg="12" nzXl="6" style="margin-top: 10px">
+        <nz-card [nzCover]="coverTemplate" nzHoverable (click)="detailProduct(product)">
+          <nz-card-meta [nzDescription]="product.price" [nzTitle]="product.name"></nz-card-meta>
+        </nz-card>
+        <ng-template #coverTemplate>
+          <img alt="example" style="object-fit: contain" height="250" [src]="product.image"/>
+        </ng-template>
+      </div>
+    }
+  </div>
+  <nz-modal
+    (nzOnCancel)="dialogProduct = false"
+    [(nzVisible)]="dialogProduct"
+    [nzContent]="modalContent"
+    [nzFooter]="modalFooter"
+    [nzTitle]="modalTitle"
+  >
+    <ng-template #modalTitle>Detalhamento do Produto</ng-template>
+
+    <ng-template #modalContent>
+      <nz-card [nzBordered]="false" [nzCover]="coverTemplate">
+        <nz-card-meta [nzDescription]="selectedProduct.price" [nzTitle]="selectedProduct.name"></nz-card-meta>
       </nz-card>
       <ng-template #coverTemplate>
-        <img alt="example" height="200" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"/>
+        <img [src]="selectedProduct.image" alt="example" height="250" style="object-fit: contain"/>
       </ng-template>
-    </div>
-  </div>
-</div>
-<div fxFlexAlign="start" fxLayout="row">
+    </ng-template>
 
+    <ng-template #modalFooter>
+      <button (click)="dialogProduct = false" nz-button nzType="default">Cancelar</button>
+      <button (click)="addToChart()" [nzLoading]="loading" nz-button nzType="primary">Adicionar</button>
+    </ng-template>
+  </nz-modal>
 </div>

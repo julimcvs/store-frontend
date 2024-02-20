@@ -22,5 +22,4 @@ import {NzInputDirective} from "ng-zorro-antd/input";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  isCollapsed = false;
 }
