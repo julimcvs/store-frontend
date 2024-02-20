@@ -1,0 +1,125 @@
+<div class="form-container">
+  <img alt="logo" height="100" ngSrc="images/logo.png" routerLink="/home" routerLinkActive="active"
+       style="object-fit: contain" width="150"/>
+  <nz-card nzTitle="Cadastro" style="width: 100%;">
+    <form (ngSubmit)="register()" [formGroup]="form" class="login-form" nz-form>
+      <nz-row nzGutter="12">
+        <nz-col nzMd="12" nzSm="24">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Nome inválido">
+              <nz-input-group nzSize="large">
+                <input formControlName="name" nz-input placeholder="Nome" type="text"/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-col>
+        <nz-col nzMd="12" nzSm="24">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Data inválida">
+              <nz-date-picker formControlName="birthDate" nzPlaceHolder="Data de nascimento" nzSize="large"
+                              style="width: 100%"></nz-date-picker>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-col>
+      </nz-row>
+      <nz-row nzGutter="12">
+        <nz-col nzMd="12" nzSm="24">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Email inválido">
+              <nz-input-group nzSize="large">
+                <input formControlName="email" nz-input placeholder="Email" type="email"/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-col>
+        <nz-col nzMd="12">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="CPF inválido">
+              <nz-input-group nzSize="large">
+                <input formControlName="cpf" maxlength="11" nz-input placeholder="CPF" type="text"/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-col>
+      </nz-row>
+      <nz-row nzGutter="12">
+        <nz-col nzMd="12" nzSm="24">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Senha inválida">
+              <nz-input-group nzPrefixIcon="lock" nzSize="large">
+                <input formControlName="password" nz-input placeholder="Senha" type="password"/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-col>
+        <nz-col nzMd="12" nzSm="24">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Confirmação de senha inválida">
+              <nz-input-group nzPrefixIcon="lock" nzSize="large">
+                <input formControlName="confirmPassword" nz-input placeholder="Confirmação de senha" type="password"/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+        </nz-col>
+      </nz-row>
+      <ng-form formGroupName="address" nz-form>
+        <nz-row nzGutter="12">
+          <nz-col nzMd="24">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Rua inválida">
+                <nz-input-group nzSize="large">
+                  <input formControlName="street" nz-input placeholder="Rua" type="text"/>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+        </nz-row>
+        <nz-row nzGutter="12">
+          <nz-col nzMd="12" nzSm="24">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Bairro inválido">
+                <nz-input-group nzSize="large">
+                  <input formControlName="neighborhood" nz-input placeholder="Bairro" type="text"/>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+          <nz-col nzMd="12">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Número inválido">
+                <nz-input-group nzSize="large">
+                  <input formControlName="number" nz-input placeholder="Número" type="text"/>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+        </nz-row>
+        <nz-row nzGutter="12">
+          <nz-col nzMd="12" nzSm="24">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="CEP inválido">
+                <nz-input-group nzSize="large">
+                  <input formControlName="zipCode" nz-input placeholder="CEP" type="text"/>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+          <nz-col nzMd="12">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Estado inválido">
+                <nz-input-group nzSize="large">
+                  <input formControlName="state" nz-input placeholder="Estado" type="text"/>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </nz-col>
+        </nz-row>
+      </ng-form>
+      <div class="form-actions">
+        <button [disabled]="!form.valid" [nzLoading]="loading" [nzType]="'primary'" class="login-form-button login-form-margin"
+                nz-button>Registrar
+        </button>
+      </div>
+    </form>
+  </nz-card>
+</div>

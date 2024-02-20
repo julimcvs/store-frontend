@@ -19,6 +19,10 @@ import {IconDefinition} from '@ant-design/icons-angular';
 import {MenuOutline, ShoppingCartOutline, UserOutline} from '@ant-design/icons-angular/icons';
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {NzFormModule} from "ng-zorro-antd/form";
+import {NzSelectModule} from "ng-zorro-antd/select";
+import {NzAlertModule} from "ng-zorro-antd/alert";
+import {NzTagModule} from "ng-zorro-antd/tag";
+import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
 
 const icons: IconDefinition[] = [MenuOutline, ShoppingCartOutline, UserOutline];
 
@@ -46,6 +50,10 @@ const icons: IconDefinition[] = [MenuOutline, ShoppingCartOutline, UserOutline];
     RouterLinkActive,
     NzFormModule,
     ReactiveFormsModule,
+    NzSelectModule,
+    NzAlertModule,
+    NzTagModule,
+    NzDatePickerModule,
     NzIconModule.forRoot(icons),
   ],
   exports: [
@@ -69,7 +77,10 @@ const icons: IconDefinition[] = [MenuOutline, ShoppingCartOutline, UserOutline];
     RouterLinkActive,
     NzFormModule,
     ReactiveFormsModule,
-
+    NzSelectModule,
+    NzAlertModule,
+    NzTagModule,
+    NzDatePickerModule,
   ]
 })
 export class SharedModule {
