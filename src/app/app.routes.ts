@@ -5,4 +5,5 @@ export const routes: Routes = [
   {path: 'home', loadChildren: () => import('./pages/home/home.routes').then(m => m.HOME_ROUTES)},
   {path: 'login', loadChildren: () => import('./pages/login/login.routes').then(m => m.LOGIN_ROUTES)},
   {path: 'register', loadChildren: () => import('./pages/register/register.routes').then(m => m.REGISTER_ROUTES)},
+  {path: 'cart', loadChildren: () => import('./pages/cart/cart.routes').then(m => m.CART_ROUTES)},
 ];

@@ -11,4 +11,8 @@ export class CartService {
   addItem(body: any) {
     return this.http.post(`http://localhost:8080/quotation/add`, body);
   }
+
+  findById(id: string) {
+    return this.http.get(`http://localhost:8080/quotation/${id}`);
+  }
 }

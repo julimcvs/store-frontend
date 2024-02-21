@@ -54,6 +54,8 @@ export class HomeComponent implements OnInit {
           sessionStorage.setItem('quotationId', res.id);
           this.messageService.success('Produto adicionado ao carrinho!');
           this.selectedProduct.quantity = null;
+          this.selectedProduct = null;
+          this.dialogProduct = false;
         },
         error: err => {
           console.error(err)
@@ -62,8 +64,6 @@ export class HomeComponent implements OnInit {
       }
     )
     this.loading = false;
-    this.selectedProduct = null;
-    this.dialogProduct = false;
   }
 
   detailProduct(product: any) {

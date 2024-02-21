@@ -25,6 +25,7 @@ export class PermissionService implements OnInit {
   }
 
   getAuthToken(): string | null {
+    this.token = localStorage.getItem('jwt-token')
     return this.token;
   }
 

@@ -1,0 +1,43 @@
+<div class="form-container">
+  <img alt="logo" height="100" ngSrc="images/logo.png" routerLink="/home" routerLinkActive="active"
+       style="object-fit: contain" width="150"/>
+  <nz-card nzTitle="Carrinho de compras" style="width: 100%;">
+    @if (quotationId) {
+      @for (product of cart.quotationDetails;track product.id) {
+        <div nz-row nzGutter="12">
+          <nz-card style="width: 100%">
+            <div class="product-container">
+              <img [alt]="product.name" style="object-fit: contain" height="150" [src]="product.image"/>
+              <div style="margin-left: 15px">
+                <p>{{product.name}}</p>
+                <p>Preço: {{product.price}}</p>
+                <p>Quantidade: {{product.quantity}}</p>
+              </div>
+              <div style="margin-left: auto; font-size: 20px">
+                <p>Subtotal: <b>{{product.subtotal}}</b></p>
+              </div>
+            </div>
+
+          </nz-card>
+
+        </div>
+      }
+      <div class="form-actions-container">
+        <div class="form-actions">
+          <p style="font-size: 20px">Subtotal ({{cart.quotationDetails.length}} produtos): <b>{{cart.totalAmount}}</b></p>
+          <button [nzLoading]="loading" (click)="checkout()" [nzType]="'primary'" class="cart-form-button" nz-button>
+            Fechar pedido
+          </button>
+        </div>
+      </div>
+
+    } @else {
+      <div class="form-container">
+        <p style="font-size: 20px">Você ainda não inseriu nenhum produto no carrinho!</p>
+        <button [nzType]="'primary'" routerLink="/home" routerLinkActive nzSize="large" nz-button>
+          Voltar
+        </button>
+      </div>
+    }
+  </nz-card>
+</div>
