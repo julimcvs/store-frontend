@@ -7,6 +7,7 @@ import {NzMenuModule} from 'ng-zorro-antd/menu';
 import {registerLocaleData} from '@angular/common';
 import br from '@angular/common/locales/br';
 import {en_US, NzI18nService} from 'ng-zorro-antd/i18n';
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',

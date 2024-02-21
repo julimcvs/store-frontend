@@ -5,7 +5,8 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideNzIcons } from './icons-provider';
-import {provideHttpClient, withFetch} from "@angular/common/http";
+import {provideHttpClient, withFetch, withInterceptors} from "@angular/common/http";
+import {authInterceptor} from "./middlewares/auth-interceptor.service";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,6 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideNzIcons(),
     provideHttpClient(
+      withInterceptors([authInterceptor]),
       withFetch()
     ),
 

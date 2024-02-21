@@ -3,7 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import Validation from "../../utils/validation";
 import {SharedModule} from "../../shared/shared.module";
 import {NgOptimizedImage} from "@angular/common";
-import {UserService} from "../../services/user.service";
+import {UserService} from "../../services/user/user.service";
 import {NzMessageService} from "ng-zorro-antd/message";
 import {Router, ActivatedRoute} from "@angular/router";
 

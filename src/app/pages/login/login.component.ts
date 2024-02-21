@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {SharedModule} from "../../shared/shared.module";
 import {FormControl, FormGroup, NonNullableFormBuilder, Validators} from "@angular/forms";
 import {NgOptimizedImage} from "@angular/common";
-import {UserService} from "../../services/user.service";
+import {UserService} from "../../services/user/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NzMessageService} from "ng-zorro-antd/message";
 

@@ -56,8 +56,17 @@
 
     <ng-template #modalContent>
       <nz-card [nzBordered]="false" [nzCover]="coverTemplate">
-        <nz-card-meta [nzDescription]="selectedProduct.price" [nzTitle]="selectedProduct.name"></nz-card-meta>
+        <p>{{selectedProduct.price}}</p>
+        <p>{{selectedProduct.name}}</p>
+        <input
+          style="width: 120px"
+          nz-input
+          nzSize="large"
+          [(ngModel)]="selectedProduct.quantity"
+          placeholder="Quantidade"
+        />
       </nz-card>
+
       <ng-template #coverTemplate>
         <img [src]="selectedProduct.image" alt="example" height="250" style="object-fit: contain"/>
       </ng-template>
